@@ -1,8 +1,10 @@
 packages:
   - apps/*
   - packages/*
+  - infra
 
 allowBuilds:
+  esbuild: true
   sharp: false
   unrs-resolver: false
 
@@ -14,3 +16,5 @@ minimumReleaseAgeExclude:
   - '@turbo/windows-64@2.11.12'
   - '@turbo/windows-arm64@2.11.12'
   - turbo@2.11.12
+  - '@aws-sdk/client-s3@3.1171.0'
+  - '@aws-sdk/s3-request-presigner@3.1171.0'

@@ -10,6 +10,7 @@
     "build": "nest build",
     "dev": "nest start --watch",
     "lint": "oxlint --type-aware src/ test/",
+    "seed": "nest build && node dist/seed/seed.js",
     "start": "nest start",
     "start:debug": "nest start --debug --watch",
     "start:dev": "nest start --watch",
@@ -22,6 +23,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1171.0",
+    "@aws-sdk/s3-request-presigner": "^3.1171.0",
     "@macrodetails/contracts": "workspace:*",
     "@nestjs/common": "^12.0.1",
     "@nestjs/config": "^12.1.1",
