@@ -1,0 +1,44 @@
+{
+  "categories": {
+    "flowers": "Flores",
+    "desserts": "Postres",
+    "chocolates": "Chocolates",
+    "gift-boxes": "Cajas de regalo",
+    "balloons": "Globos",
+    "personalized": "Personalizados"
+  },
+  "occasions": {
+    "birthday": "Cumpleaños",
+    "anniversary": "Aniversario",
+    "valentines": "San Valentín",
+    "mothers-day": "Día de las Madres",
+    "graduation": "Graduación",
+    "congratulations": "Felicidades",
+    "thank-you": "Agradecimiento",
+    "get-well": "Recupérate pronto",
+    "just-because": "Porque sí"
+  },
+  "allergens": {
+    "gluten": "Gluten",
+    "dairy": "Lácteos",
+    "eggs": "Huevo",
+    "nuts": "Nueces",
+    "peanuts": "Cacahuate",
+    "soy": "Soya",
+    "pollen": "Polen"
+  },
+  "sort": {
+    "label": "Ordenar por",
+    "relevance": "Recomendados",
+    "price-asc": "Precio: menor a mayor",
+    "price-desc": "Precio: mayor a menor",
+    "newest": "Más nuevos"
+  },
+  "product": {
+    "fromPrice": "Desde {price}",
+    "readyIn": "Listo en {hours} h",
+    "readyInDays": "Listo en {days} días",
+    "by": "por {vendor}",
+    "noImage": "Foto próximamente"
+  }
+}

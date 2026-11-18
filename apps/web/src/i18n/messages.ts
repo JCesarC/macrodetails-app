@@ -1,6 +1,8 @@
 import { defaultLocale, type Locale } from './config';
+import esMxCatalog from './messages/es-MX/catalog.json';
 import esMxCommon from './messages/es-MX/common.json';
 import esMxHome from './messages/es-MX/home.json';
+import esMxLayout from './messages/es-MX/layout.json';
 
 /**
  * UI copy lives in JSON files under ./messages/<locale>/<namespace>.json.
@@ -9,7 +11,9 @@ import esMxHome from './messages/es-MX/home.json';
  */
 const esMx = {
   common: esMxCommon,
+  layout: esMxLayout,
   home: esMxHome,
+  catalog: esMxCatalog,
 };
 
 export type Messages = typeof esMx;

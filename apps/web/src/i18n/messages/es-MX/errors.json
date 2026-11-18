@@ -1,0 +1,7 @@
+{
+  "title": "No pudimos cargar esta página",
+  "description": "Puede ser un problema momentáneo de conexión con nuestros servidores. Intenta de nuevo en unos segundos.",
+  "retry": "Intentar de nuevo",
+  "goHome": "Ir al inicio",
+  "reference": "Referencia: {digest}"
+}
