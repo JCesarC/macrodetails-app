@@ -26,6 +26,7 @@ apps/
 packages/
   contracts/  esquemas Zod y tipos compartidos
   config/     configuración compartida de TypeScript
+infra/        AWS CDK: bucket S3 privado + CloudFront para imágenes
 docs/
   ROADMAP.md
   adr/        decisiones de arquitectura
@@ -37,25 +38,33 @@ Requisitos: Node 24 (`.nvmrc`), pnpm (vía `corepack enable pnpm`) y Docker.
 
 ```bash
 pnpm install
-pnpm infra:up                            # MongoDB (Atlas local) + Redis
+cp .env.example .env                     # credenciales de Mongo local
 cp apps/api/.env.example apps/api/.env
 cp apps/web/.env.example apps/web/.env.local
+pnpm infra:up                            # MongoDB (Atlas local, con auth) + Redis
+pnpm --filter @macrodetails/api seed     # 6 proveedores y 42 productos de demo
 pnpm dev                                 # web en :3000, API en :4000
 ```
 
 - Web: http://localhost:3000
 - Salud de la API: http://localhost:4000/api/v1/health
+- Catálogo: http://localhost:4000/api/v1/products?category=flowers&occasion=birthday
+
+Para usar MongoDB Atlas en lugar del contenedor local solo cambia `MONGODB_URI` en `apps/api/.env`.
 
 ## Scripts
 
-| Comando                        | Qué hace                                       |
-| ------------------------------ | ---------------------------------------------- |
-| `pnpm dev`                     | Levanta todas las apps en modo desarrollo      |
-| `pnpm build`                   | Compila paquetes y apps                        |
-| `pnpm lint` / `pnpm typecheck` | Lint y revisión de tipos en todo el monorepo   |
-| `pnpm test`                    | Tests unitarios                                |
-| `pnpm test:e2e`                | Tests e2e de la API (requiere `pnpm infra:up`) |
-| `pnpm format`                  | Formatea con Prettier                          |
+| Comando                                        | Qué hace                                              |
+| ---------------------------------------------- | ----------------------------------------------------- |
+| `pnpm dev`                                     | Levanta todas las apps en modo desarrollo             |
+| `pnpm build`                                   | Compila paquetes y apps                               |
+| `pnpm lint` / `pnpm typecheck`                 | Lint y revisión de tipos en todo el monorepo          |
+| `pnpm test`                                    | Tests unitarios                                       |
+| `pnpm test:e2e`                                | Tests e2e de la API (requiere `pnpm infra:up`)        |
+| `pnpm format`                                  | Formatea con Prettier                                 |
+| `pnpm --filter @macrodetails/api seed`         | Carga proveedores y productos de demo (idempotente)   |
+| `pnpm --filter @macrodetails/infra synth`      | Genera las plantillas de CloudFormation               |
+| `pnpm --filter @macrodetails/infra cdk:deploy` | Despliega la infraestructura (requiere `AWS_PROFILE`) |
 
 ## Convenciones
 
@@ -67,3 +76,4 @@ pnpm dev                                 # web en :3000, API en :4000
 - [0001 · Monorepo con pnpm y Turborepo](docs/adr/0001-monorepo.md)
 - [0002 · Monolito modular con arquitectura hexagonal por módulo](docs/adr/0002-monolito-modular-hexagonal.md)
 - [0003 · NestJS para la API](docs/adr/0003-nestjs.md)
+- [0004 · Estructura de cuentas y región de AWS](docs/adr/0004-cuentas-y-region-aws.md)

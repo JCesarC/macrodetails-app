@@ -1,23 +1,15 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { INestApplication } from '@nestjs/common';
+import type { INestApplication } from '@nestjs/common';
 import request from 'supertest';
-import { App } from 'supertest/types.js';
+import type { App } from 'supertest/types.js';
 import { HealthResponseSchema } from '@macrodetails/contracts';
-import { AppModule } from './../src/app.module.js';
-import { configureApp } from './../src/configure-app.js';
+import { createTestApp } from './support/create-test-app.js';
 
-// Requires Mongo running (pnpm infra:up) and MONGODB_URI in the environment or in .env.
-describe('API (e2e)', () => {
+// Requires Mongo running (pnpm infra:up). Uses the "<db>-test" database.
+describe('Health (e2e)', () => {
   let app: INestApplication<App>;
 
   beforeAll(async () => {
-    const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [AppModule],
-    }).compile();
-
-    app = moduleFixture.createNestApplication();
-    configureApp(app);
-    await app.init();
+    app = await createTestApp();
   });
 
   afterAll(async () => {

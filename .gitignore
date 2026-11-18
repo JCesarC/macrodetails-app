@@ -15,3 +15,7 @@ next-env.d.ts
 *.log
 .vscode/*
 !.vscode/extensions.json
+
+# CDK
+cdk.out/
+cdk-outputs.json

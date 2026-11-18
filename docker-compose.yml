@@ -3,6 +3,11 @@
 services:
   mongo:
     image: mongodb/mongodb-atlas-local:8.0.10
+    environment:
+      # Read from the root .env file (see .env.example). Auth is on so the local
+      # connection string has the same shape as the Atlas one.
+      MONGODB_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME:?set MONGO_ROOT_USERNAME in .env}
+      MONGODB_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:?set MONGO_ROOT_PASSWORD in .env}
     ports:
       - '27017:27017'
     volumes:

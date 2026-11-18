@@ -1,0 +1,26 @@
+{
+  "name": "@macrodetails/infra",
+  "version": "0.0.0",
+  "private": true,
+  "description": "AWS infrastructure as code (CDK) for MacroDetails",
+  "scripts": {
+    "cdk": "cdk",
+    "synth": "cdk synth",
+    "diff": "cdk diff",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "cdk:deploy": "cdk deploy --all --outputs-file cdk-outputs.json",
+    "bootstrap": "cdk bootstrap"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.277.0",
+    "constructs": "^10.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "aws-cdk": "^2.1148.1",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.2"
+  }
+}
