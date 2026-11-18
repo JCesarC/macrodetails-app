@@ -21,7 +21,8 @@
     },
     "test:e2e": {
       "dependsOn": ["^build"],
-      "cache": false
+      "cache": false,
+      "passThroughEnv": ["MONGODB_URI", "NODE_ENV", "PORT", "WEB_ORIGIN"]
     }
   }
 }
