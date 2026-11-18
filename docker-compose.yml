@@ -1,0 +1,27 @@
+# Local development infrastructure.
+# mongodb-atlas-local ships Atlas Search and Vector Search, same as Atlas.
+services:
+  mongo:
+    image: mongodb/mongodb-atlas-local:8.0.10
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ['CMD', 'mongosh', '--quiet', '--eval', 'db.runCommand({ ping: 1 })']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:8.8-alpine
+    ports:
+      - '6379:6379'
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  mongo-data:

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Librería ESM para Node y bundlers",
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "types": []
+  }
+}
