@@ -4,7 +4,7 @@
 
 Le cuentas a quién quieres sorprender, para qué ocasión y cuánto quieres gastar; MacroDetails te recomienda detalles reales del catálogo (flores, postres, chocolates, arreglos personalizados), los programa para la fecha exacta y te recuerda las fechas importantes del año.
 
-**Estado:** demo en construcción (Fase Demo, 17 nov – 1 dic 2026). Ver el [roadmap](docs/ROADMAP.md).
+**Estado:** demo en construcción (Fase Demo, 17 nov – 1 dic 2026). Ver el [roadmap](docs/ROADMAP.md) y el [plan de producto](docs/PRODUCT-PLAN.md).
 
 ## Stack
 
@@ -28,7 +28,8 @@ packages/
   config/     configuración compartida de TypeScript
 infra/        AWS CDK: bucket S3 privado + CloudFront para imágenes
 docs/
-  ROADMAP.md
+  ROADMAP.md      backlog por milestones
+  PRODUCT-PLAN.md visión y fases del producto
   adr/        decisiones de arquitectura
 ```
 
