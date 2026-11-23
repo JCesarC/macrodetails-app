@@ -1,0 +1,22 @@
+{
+  "brand": "MacroDetails",
+  "skipToContent": "Saltar al contenido",
+  "nav": {
+    "explore": "Explorar",
+    "occasions": "Ocasiones",
+    "concierge": "Asistente de regalos",
+    "openMenu": "Abrir menú",
+    "menuTitle": "Menú"
+  },
+  "search": {
+    "label": "Buscar regalos",
+    "placeholder": "Rosas, pastel, chocolates…",
+    "submit": "Buscar"
+  },
+  "footer": {
+    "tagline": "Detalles de artesanos locales, entregados a tiempo.",
+    "city": "Hecho en Campeche, México",
+    "demoNotice": "Proyecto demo: los proveedores y productos son ficticios.",
+    "rights": "© {year} MacroDetails"
+  }
+}
