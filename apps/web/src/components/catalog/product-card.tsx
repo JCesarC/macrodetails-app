@@ -24,7 +24,7 @@ export function ProductCard({ product, priority }: ProductCardProps) {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="group flex w-full min-w-0 flex-col overflow-hidden rounded-xl border bg-card transition-shadow hover:shadow-md focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
+      className="group flex w-full min-w-0 flex-col overflow-hidden rounded-xl border bg-card transition-[box-shadow,transform,border-color] duration-200 ease-out hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-lg active:translate-y-0 focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none motion-reduce:transition-none motion-reduce:hover:translate-y-0"
     >
       <div className="relative">
         <ProductImage
@@ -32,7 +32,7 @@ export function ProductCard({ product, priority }: ProductCardProps) {
           category={product.category}
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
           priority={priority}
-          className="aspect-square transition-transform duration-300 group-hover:scale-[1.02]"
+          className="aspect-square transition-transform duration-300 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
         />
         <span className="absolute bottom-2 left-2 inline-flex items-center gap-1 rounded-full bg-background/90 px-2 py-0.5 text-xs font-medium whitespace-nowrap text-foreground shadow-sm backdrop-blur-sm">
           <Clock className="size-3" aria-hidden />
@@ -43,7 +43,9 @@ export function ProductCard({ product, priority }: ProductCardProps) {
         <p className="truncate text-xs text-muted-foreground">
           {formatMessage(t.by, { vendor: product.vendor.name })}
         </p>
-        <h3 className="line-clamp-2 min-h-10 text-sm leading-5 font-medium">{product.name}</h3>
+        <h3 className="line-clamp-2 min-h-10 text-sm leading-5 font-medium transition-colors group-hover:text-primary">
+          {product.name}
+        </h3>
         <p className="mt-auto pt-1 text-base font-semibold tabular-nums">
           {formatMessage(t.fromPrice, { price: formatPrice(product.price) })}
         </p>
