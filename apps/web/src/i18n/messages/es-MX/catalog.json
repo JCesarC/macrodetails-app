@@ -40,5 +40,37 @@
     "readyInDays": "Listo en {days} días",
     "by": "por {vendor}",
     "noImage": "Foto próximamente"
+  },
+  "listing": {
+    "title": "Explorar regalos",
+    "resultsFor": "Resultados para “{query}”",
+    "countOne": "1 producto",
+    "countOther": "{count} productos",
+    "filters": "Filtros",
+    "openFilters": "Filtrar",
+    "all": "Todas",
+    "allVendors": "Todos",
+    "category": "Categoría",
+    "occasion": "Ocasión",
+    "price": "Precio",
+    "vendor": "Proveedor",
+    "clearAll": "Limpiar filtros",
+    "removeFilter": "Quitar filtro: {label}",
+    "priceRanges": {
+      "under-300": "Menos de $300",
+      "300-600": "$300 a $600",
+      "600-1000": "$600 a $1,000",
+      "over-1000": "Más de $1,000"
+    },
+    "empty": {
+      "title": "No encontramos regalos con esos filtros",
+      "description": "Prueba con otra búsqueda o quita algunos filtros."
+    },
+    "pagination": {
+      "label": "Paginación",
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "page": "Página {page}"
+    }
   }
 }
