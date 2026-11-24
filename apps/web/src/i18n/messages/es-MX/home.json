@@ -1,6 +1,32 @@
 {
-  "eyebrow": "MacroDetails",
-  "title": "El regalo perfecto, sin adivinar.",
-  "subtitle": "Cuéntanos a quién quieres sorprender y te recomendamos detalles de artesanos locales en Campeche: flores, postres, chocolates y más, entregados a tiempo.",
-  "buildStatus": "Demo en construcción · noviembre 2026"
+  "hero": {
+    "eyebrow": "Regalos con intención · Campeche",
+    "title": "El regalo perfecto, sin adivinar.",
+    "subtitle": "Flores, postres, chocolates y detalles personalizados de artesanos locales, entregados el día y en el horario que elijas.",
+    "primaryCta": "Explorar regalos",
+    "secondaryCta": "Buscar por ocasión",
+    "categoriesLabel": "Categorías"
+  },
+  "highlights": {
+    "local": {
+      "title": "Artesanos locales",
+      "description": "Cada detalle lo prepara un negocio de Campeche."
+    },
+    "scheduled": {
+      "title": "Entrega programada",
+      "description": "Eliges día y franja horaria; llega a tiempo."
+    },
+    "personalized": {
+      "title": "A tu medida",
+      "description": "Tamaños, sabores y mensajes personalizados."
+    }
+  },
+  "occasions": {
+    "title": "¿Qué celebras?",
+    "subtitle": "Encuentra ideas pensadas para cada momento."
+  },
+  "featured": {
+    "title": "Recién llegados",
+    "seeAll": "Ver todo el catálogo"
+  }
 }

@@ -2,12 +2,5 @@
   "meta": {
     "title": "MacroDetails · Regalos con intención",
     "description": "Asistente de regalos con AI y marketplace de artesanos locales en Campeche."
-  },
-  "apiStatus": {
-    "ok": "API en línea",
-    "degraded": "API degradada",
-    "offline": "API sin conexión",
-    "checking": "Revisando API…",
-    "version": "v{version}"
   }
 }
