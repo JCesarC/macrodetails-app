@@ -11,13 +11,6 @@ interface ProductCardProps {
   priority?: boolean;
 }
 
-/**
- * Catalog card linking to a product's detail page.
- * Shows the cover image with the preparation time as a badge, the vendor, a name
- * clamped to two reserved lines so prices align across a row, and the starting price.
- * @param product Product summary to display.
- * @param priority Loads the image eagerly; use it only for cards above the fold.
- */
 export function ProductCard({ product, priority }: ProductCardProps) {
   const { product: t } = getMessages().catalog;
 
