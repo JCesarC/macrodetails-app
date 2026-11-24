@@ -3,3 +3,4 @@ export * from './common/primitives.js';
 export * from './catalog/taxonomy.js';
 export * from './catalog/vendor.js';
 export * from './catalog/product.js';
+export * from './catalog/pricing.js';
