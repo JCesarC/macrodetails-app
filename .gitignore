@@ -16,6 +16,9 @@ next-env.d.ts
 .vscode/*
 !.vscode/extensions.json
 
+# Seed photos: vendor-owned, uploaded to the media bucket, never committed
+apps/api/seed-assets/products/*/
+
 # CDK
 cdk.out/
 cdk-outputs.json
