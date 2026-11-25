@@ -3,6 +3,7 @@ import esMxCatalog from './messages/es-MX/catalog.json';
 import esMxCommon from './messages/es-MX/common.json';
 import esMxHome from './messages/es-MX/home.json';
 import esMxLayout from './messages/es-MX/layout.json';
+import esMxProductDetail from './messages/es-MX/product-detail.json';
 
 /**
  * UI copy lives in JSON files under ./messages/<locale>/<namespace>.json.
@@ -14,6 +15,7 @@ const esMx = {
   layout: esMxLayout,
   home: esMxHome,
   catalog: esMxCatalog,
+  productDetail: esMxProductDetail,
 };
 
 export type Messages = typeof esMx;
