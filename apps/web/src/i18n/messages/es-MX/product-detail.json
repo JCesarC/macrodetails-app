@@ -1,0 +1,9 @@
+{
+  "breadcrumb": "Ruta de navegación",
+  "explore": "Explorar",
+  "notFound": {
+    "title": "No encontramos este regalo",
+    "description": "Puede que el proveedor lo haya retirado o que el enlace esté incompleto.",
+    "backToCatalog": "Ver todos los regalos"
+  }
+}
