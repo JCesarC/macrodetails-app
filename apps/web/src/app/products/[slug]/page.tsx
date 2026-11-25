@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 import { ChevronRight } from 'lucide-react';
 import type { Product } from '@macrodetails/contracts';
-import { ProductImage } from '@/components/catalog/product-image';
+import { ProductGallery } from '@/components/catalog/product-gallery';
 import { Skeleton } from '@/components/ui/skeleton';
 import { getMessages } from '@/i18n';
 import { getProduct } from '@/lib/api/catalog';
@@ -29,13 +29,7 @@ async function ProductDetail({ params }: Pick<PageProps<'/products/[slug]'>, 'pa
     <>
       <ProductBreadcrumb product={product} />
       <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
-        <ProductImage
-          image={product.images[0]}
-          category={product.category}
-          sizes="(min-width: 768px) 50vw, 100vw"
-          priority
-          className="aspect-square rounded-2xl"
-        />
+        <ProductGallery images={product.images} category={product.category} />
         <section className="flex flex-col gap-4">
           <h1 className="font-heading text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
             {product.name}
