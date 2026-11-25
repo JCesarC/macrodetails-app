@@ -18,6 +18,7 @@ interface SortSelectProps {
 
 export function SortSelect({ label, value, options }: SortSelectProps) {
   const router = useRouter();
+  const selected = options.find((option) => option.value === value);
 
   function navigate(next: string) {
     const option = options.find((candidate) => candidate.value === next);
@@ -27,7 +28,7 @@ export function SortSelect({ label, value, options }: SortSelectProps) {
   return (
     <Select value={value} onValueChange={navigate}>
       <SelectTrigger aria-label={label} className="w-56">
-        <SelectValue />
+        <SelectValue>{selected?.label}</SelectValue>
       </SelectTrigger>
       <SelectContent align="end">
         {options.map((option) => (
