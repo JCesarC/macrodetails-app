@@ -15,6 +15,7 @@ import {
   type VendorDocument,
 } from '../modules/vendors/infrastructure/vendor.schema.js';
 import { products } from './data/products.js';
+import { seedPhotoKey } from './photo-key.js';
 import { vendors } from './data/vendors.js';
 import { SeedProductSchema, SeedVendorSchema } from './seed-schemas.js';
 
@@ -99,9 +100,10 @@ async function uploadPhotos(
   try {
     const images = [];
     for (const file of files) {
+      const body = await readFile(join(dir, file));
       const { publicUrl } = await storage.putObject({
-        key: `products/${slug}/${file}`,
-        body: await readFile(join(dir, file)),
+        key: seedPhotoKey(slug, file, body),
+        body,
         contentType: CONTENT_TYPES[extname(file).toLowerCase()]!,
       });
       images.push({ url: publicUrl, alt });
