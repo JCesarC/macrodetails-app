@@ -4,11 +4,11 @@ import { Suspense } from 'react';
 import { ChevronRight } from 'lucide-react';
 import type { Product } from '@macrodetails/contracts';
 import { ProductGallery } from '@/components/catalog/product-gallery';
+import { ProductOverview } from '@/components/catalog/product-overview';
 import { Skeleton } from '@/components/ui/skeleton';
 import { getMessages } from '@/i18n';
 import { getProduct } from '@/lib/api/catalog';
 import { catalogHref, parseCatalogSearchParams } from '@/lib/catalog/search-params';
-import { formatPrice } from '@/lib/format';
 
 export default function ProductPage({ params }: PageProps<'/products/[slug]'>) {
   return (
@@ -30,12 +30,7 @@ async function ProductDetail({ params }: Pick<PageProps<'/products/[slug]'>, 'pa
       <ProductBreadcrumb product={product} />
       <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
         <ProductGallery images={product.images} category={product.category} />
-        <section className="flex flex-col gap-4">
-          <h1 className="font-heading text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
-            {product.name}
-          </h1>
-          <p className="text-2xl font-semibold tabular-nums">{formatPrice(product.price)}</p>
-        </section>
+        <ProductOverview product={product} />
       </div>
     </>
   );
