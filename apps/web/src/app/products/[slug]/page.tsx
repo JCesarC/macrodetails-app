@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
@@ -9,6 +10,30 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { getMessages } from '@/i18n';
 import { getProduct } from '@/lib/api/catalog';
 import { catalogHref, parseCatalogSearchParams } from '@/lib/catalog/search-params';
+
+const DESCRIPTION_LIMIT = 160;
+
+export async function generateMetadata({
+  params,
+}: PageProps<'/products/[slug]'>): Promise<Metadata> {
+  const { slug } = await params;
+  const product = await getProduct(slug);
+  if (!product) return { title: getMessages().productDetail.notFound.title };
+
+  const description = truncate(product.description, DESCRIPTION_LIMIT);
+  const cover = product.images[0];
+
+  return {
+    title: product.name,
+    description,
+    openGraph: {
+      type: 'website',
+      title: product.name,
+      description,
+      images: cover ? [{ url: cover.url, alt: cover.alt }] : undefined,
+    },
+  };
+}
 
 export default function ProductPage({ params }: PageProps<'/products/[slug]'>) {
   return (
@@ -81,4 +106,8 @@ function ProductDetailSkeleton() {
       </div>
     </div>
   );
+}
+
+function truncate(text: string, limit: number): string {
+  return text.length <= limit ? text : `${text.slice(0, limit - 1).trimEnd()}…`;
 }
