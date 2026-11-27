@@ -2,6 +2,7 @@ import { INestApplication, StandardSchemaValidationPipe, VersioningType } from '
 import { ConfigService } from '@nestjs/config';
 import helmet from 'helmet';
 import type { Env } from './config/env.js';
+import { setupOpenApi } from './openapi/setup-openapi.js';
 
 /**
  * HTTP setup shared by main.ts and the e2e tests,
@@ -17,4 +18,5 @@ export function configureApp(app: INestApplication): void {
   // Validates every @Body/@Query/@Param that declares a Zod `schema`.
   app.useGlobalPipes(new StandardSchemaValidationPipe());
   app.enableShutdownHooks();
+  setupOpenApi(app);
 }
