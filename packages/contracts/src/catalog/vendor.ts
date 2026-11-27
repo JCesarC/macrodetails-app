@@ -24,5 +24,10 @@ export const VendorSummarySchema = VendorSchema.pick({
   logoUrl: true,
 });
 
+export const VendorListSchema = z.object({
+  items: z.array(VendorSchema),
+});
+
 export type Vendor = z.infer<typeof VendorSchema>;
 export type VendorSummary = z.infer<typeof VendorSummarySchema>;
+export type VendorList = z.infer<typeof VendorListSchema>;
