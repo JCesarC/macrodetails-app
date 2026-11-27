@@ -1,6 +1,9 @@
 import { Controller, Get, NotFoundException, Param, Query } from '@nestjs/common';
+import { ApiNotFoundResponse, ApiOkResponse, ApiOperation } from '@nestjs/swagger';
 import {
   ProductListQuerySchema,
+  ProductPageSchema,
+  ProductSchema,
   SlugSchema,
   type Page,
   type Product,
@@ -17,8 +20,12 @@ export class ProductsController {
     private readonly getProduct: GetProductUseCase,
   ) {}
 
-  /** GET /api/v1/products?q=&category=&occasion=&vendor=&minPrice=&maxPrice=&sort=&page=&limit= */
   @Get()
+  @ApiOperation({ summary: 'List active products with search, filters, sorting and pagination' })
+  @ApiOkResponse({
+    description: 'One page of matching products',
+    standardSchema: ProductPageSchema,
+  })
   list(
     @Query({ schema: ProductListQuerySchema }) query: ProductListQuery,
   ): Promise<Page<ProductSummary>> {
@@ -26,6 +33,9 @@ export class ProductsController {
   }
 
   @Get(':slug')
+  @ApiOperation({ summary: 'Get an active product by slug' })
+  @ApiOkResponse({ description: 'The product with its options', standardSchema: ProductSchema })
+  @ApiNotFoundResponse({ description: 'No active product has this slug' })
   async getBySlug(@Param('slug', { schema: SlugSchema }) slug: string): Promise<Product> {
     const product = await this.getProduct.execute(slug);
     if (!product) throw new NotFoundException(`Product "${slug}" not found`);
