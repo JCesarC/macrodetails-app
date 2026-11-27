@@ -42,21 +42,23 @@ export const ProductOptionSchema = z.discriminatedUnion('type', [
   }),
 ]);
 
-export const ProductSchema = z.object({
-  id: IdSchema,
-  slug: SlugSchema,
-  vendor: VendorSummarySchema,
-  name: z.string().min(1).max(160),
-  description: z.string().max(2000),
-  category: CategorySchema,
-  occasions: z.array(OccasionSchema),
-  tags: z.array(z.string()),
-  price: MoneySchema,
-  images: z.array(ProductImageSchema),
-  options: z.array(ProductOptionSchema),
-  allergens: z.array(AllergenSchema),
-  leadTimeHours: z.number().int().min(0),
-});
+export const ProductSchema = z
+  .object({
+    id: IdSchema,
+    slug: SlugSchema,
+    vendor: VendorSummarySchema,
+    name: z.string().min(1).max(160),
+    description: z.string().max(2000),
+    category: CategorySchema,
+    occasions: z.array(OccasionSchema),
+    tags: z.array(z.string()),
+    price: MoneySchema,
+    images: z.array(ProductImageSchema),
+    options: z.array(ProductOptionSchema),
+    allergens: z.array(AllergenSchema),
+    leadTimeHours: z.number().int().min(0),
+  })
+  .meta({ id: 'Product' });
 
 /** Lighter shape for listings and recommendation cards. */
 export const ProductSummarySchema = ProductSchema.pick({
@@ -69,7 +71,7 @@ export const ProductSummarySchema = ProductSchema.pick({
   price: true,
   images: true,
   leadTimeHours: true,
-});
+}).meta({ id: 'ProductSummary' });
 
 export const ProductSortSchema = z.enum(['relevance', 'price-asc', 'price-desc', 'newest']);
 
@@ -87,7 +89,7 @@ export const ProductListQuerySchema = PaginationQuerySchema.extend({
   path: ['minPrice'],
 });
 
-export const ProductPageSchema = pageOf(ProductSummarySchema);
+export const ProductPageSchema = pageOf(ProductSummarySchema).meta({ id: 'ProductPage' });
 
 export type ProductImage = z.infer<typeof ProductImageSchema>;
 export type ProductOption = z.infer<typeof ProductOptionSchema>;

@@ -1,9 +1,8 @@
 import { cacheLife, cacheTag } from 'next/cache';
-import { z } from 'zod';
 import {
   ProductPageSchema,
   ProductSchema,
-  VendorSchema,
+  VendorListSchema,
   type Product,
   type ProductListQuery,
   type ProductPage,
@@ -43,6 +42,6 @@ export async function listVendors(): Promise<Vendor[]> {
   cacheLife('hours');
   cacheTag(CATALOG_TAG);
 
-  const { items } = await apiGet('/vendors', z.object({ items: z.array(VendorSchema) }));
+  const { items } = await apiGet('/vendors', VendorListSchema);
   return items;
 }
